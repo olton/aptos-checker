@@ -12,7 +12,6 @@ globalThis.updateLedgerData = (data) => {
     const healthyStatus = $(".port-data-healthy")
     const metricStatus = $(".port-data-metric")
 
-    console.log(+(data.ledger.chain_id), +(data.ledger.aptos_chain_id))
     const in_chain = !error && +(data.ledger.chain_id) === +(data.ledger.aptos_chain_id)
     const synced = !error && Math.abs(+(data.ledger.ledger_version) - +(data.ledger.aptos_version)) <= (serverConfig.aptos.accuracy || 100)
 
@@ -74,7 +73,7 @@ globalThis.updateLedgerData = (data) => {
 
 globalThis.updateHealthData = (data) => {
     if (!data.api) return
-    console.log(data)
+
     const error = !data.ledger
     const {target, ledger, api} = data
 
