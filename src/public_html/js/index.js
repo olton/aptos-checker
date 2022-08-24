@@ -17,6 +17,10 @@ globalThis.enterAddress = (form) => {
             .removeClassBy("fg-")
     }
 
+    $(".port-data")
+        .removeClassBy("bg-")
+        .removeClassBy("fg-")
+
     for(let p of ports) {
         $("#port-"+p)
             .removeClassBy("bg-")
