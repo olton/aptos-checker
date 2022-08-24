@@ -1,0 +1,105 @@
+main.container-fluid
+    div#error-log
+        div#error-log-api
+        div#error-log-metric
+
+    div
+        div.row
+            div.cell-lg-3.cell-md-6
+                div.border.bd-system.p-3.border-10(style="height: 94px")
+                    div.reduce-4.text-bold NODE TYPE
+                    div.h3.text-light.m-0.value#node-type Unknown
+                    div#node-type-icon
+                        span.mif-question
+
+            div.cell-lg-3.cell-md-6
+                div.border.bd-system.p-3.border-10(style="height: 94px")
+                    div.reduce-4.text-bold APTOS VERSION
+                    div.h3.text-light.m-0.value#aptos-version Unknown
+                    div#version-icon
+                        span.mif-versions
+
+            div.cell-lg-3.cell-md-6
+                div.border.bd-system.p-3.border-10(style="height: 94px")
+                    div.reduce-4.text-bold APTOS CHAIN ID
+                    div.h3.text-light.m-0.value#aptos-chain-id 0
+                    div#chain-ok
+                        span.mif-link
+
+            div.cell-lg-3.cell-md-6
+                div.border.bd-system.p-3.border-10(style="height: 94px")
+                    div.reduce-4.text-bold NETWORK
+                    div.h3.text-light.m-0.value
+                        span DEVNET
+                        input(type="checkbox" data-role="switch" name="network-type" id="network-type")
+                        span AIT
+                    div#network-icon
+                        span.mif-database
+
+    div.row
+        div.cell-lg-6
+            div.border.bd-system.p-4.ports-wrapper.border-10
+                div.role-name
+                div.row
+                    div.cell-12
+                        h3 NODE INFO
+                        table.table.cell-border.bd-system
+                            tbody
+                                tr
+                                    td HOST:
+                                    td.info-data-host ...
+                                tr
+                                    td PORT:
+                                    td.info-data-port ...
+                                tr
+                                    td PROT:
+                                    td.info-data-prot ...
+                                tr
+                                    td API:
+                                    td.info-data-api ...
+                        div.border-top.bd-system.mt-9.mb-9
+                        table.table.cell-border.bd-system
+                            tbody
+                                tr
+                                    td CHAIN ID:
+                                    td.info-data-chain ...
+                                tr
+                                    td EPOCH:
+                                    td.info-data-epoch ...
+                                tr
+                                    td VERSION:
+                                    td.info-data-version ...
+                                tr
+                                    td BLOCK HEIGHT:
+                                    td.info-data-block ...
+
+
+        div.cell-lg-6
+            div.border.bd-system.p-4.border-10
+                div.row
+                    div.cell-6.d-flex.flex-justify-center.flex-align-center
+                        h3 PORTS STATE
+
+                    div.cell-6
+                        div.port-data.port.border.bd-system#port-api 8080
+
+                    div.cell-6
+                        div.port-data.port.border.bd-system#port-metric 9101
+
+                    div.cell-6
+                        div.port-data.port.border.bd-system#port-seed 6180
+
+                div.row.border-top.bd-system.mt-10.pt-10
+                    div.d-flex.flex-align-center.flex-justify-center.cell-fs-one-third
+                        h3 DATA STATUS
+                    div.cell-fs-one-third
+                        div.port-data.port-data-healthy.border.bd-system NODE HEALTHY
+                    div.cell-fs-one-third
+                        div.port-data.port-data-chain.border.bd-system CHAIN STATUS
+                    div.cell-fs-one-third
+                        div.port-data.port-data-metric.border.bd-system METRIC DATA
+                    div.cell-fs-one-third
+                        div.port-data.port-data-peers.border.bd-system PEERS
+                    div.cell-fs-one-third
+                        div.port-data.port-data-sync.border.bd-system SYNC STATE
+
