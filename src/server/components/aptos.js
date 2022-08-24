@@ -1,18 +1,19 @@
 import fetch from "node-fetch";
 import {alert} from "../helpers/logging.js";
 
-export const getAptosState = async () => {
-    const link = globalThis.useNetwork === 'dev' ? config.aptos.devnet : config.aptos.ait
+export const getAptosState = async (network) => {
+    const link = network === 'dev' ? config.aptos.devnet : config.aptos.ait
     const result = await fetch(link)
     if (result.ok === false) {
-        globalThis.aptosState = {
+        alert(`Aptos Rest Node Error!`, await result.text())
+        return {
             chain_id: 0,
             epoch: 0,
             ledger_version: 0,
             ledger_timestamp: 0,
             network: config.aptos.network
         }
-        alert(`Aptos Rest Node Error!`, await result.text())
+
     } else {
         const {
             chain_id,
@@ -21,7 +22,7 @@ export const getAptosState = async () => {
             ledger_timestamp
         } = await result.json()
 
-        globalThis.aptosState = {
+        return {
             chain_id,
             epoch,
             ledger_version,

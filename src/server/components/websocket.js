@@ -41,9 +41,9 @@ export const websocket = (server) => {
                 }
                 case "aptos": {
                     globalThis.useNetwork = data.network
-                    await getAptosState()
+                    const state = await getAptosState(data.network)
                     // console.log(globalThis.useNetwork)
-                    response(ws, channel, globalThis.aptosState)
+                    response(ws, channel, state)
                     break
                 }
             }

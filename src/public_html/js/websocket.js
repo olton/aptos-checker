@@ -58,7 +58,8 @@ const wsMessageController = (ws, response) => {
                     host: nodeAddress,
                     port: apiPort,
                     prot: globalThis.portsProt.api,
-                    ver: globalThis.apiVersion
+                    ver: globalThis.apiVersion,
+                    network: globalThis.networkType
                 }
             )
         } else {

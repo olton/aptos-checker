@@ -1,5 +1,6 @@
 import fetch, {AbortError} from "node-fetch";
 import {testPort} from "../helpers/test-port.js";
+import {getAptosState} from "./aptos.js";
 
 export const HEALTH_ENDPOINT = '/-/healthy';
 export const LEDGER_ENDPOINT = '/';
@@ -29,7 +30,7 @@ export const getHostMetrics = async ({host = "", port, prot = "http"}) => {
     return result
 }
 
-export const getHostApiData = async ({ver = 'none', path = LEDGER_ENDPOINT, json = true, host = "", port, prot = "http"}) => {
+export const getHostApiData = async ({network = 'dev', ver = 'none', path = LEDGER_ENDPOINT, json = true, host = "", port, prot = "http"}) => {
     const link = `${prot.toLowerCase()}://${host}${port && ![443, 80].includes(port) ? ':'+port:''}${path}${ver === 'none' ? '' : ver === 'v1' ? 'v1' : 'v0'}`
     let result
     // console.log(link)
@@ -43,10 +44,11 @@ export const getHostApiData = async ({ver = 'none', path = LEDGER_ENDPOINT, json
             signal: controller.signal
         });
         if (response.ok) {
+            const state = await getAptosState(network)
             result = json ? {
                 ...(await response.json()),
-                aptos_chain_id: +globalThis.aptosState.chain_id,
-                aptos_version: +globalThis.aptosState.ledger_version,
+                aptos_chain_id: +state.chain_id,
+                aptos_version: +state.ledger_version,
             } : await response.text()
         } else {
             result = json ? {error: "no response"} : ":error:no response"

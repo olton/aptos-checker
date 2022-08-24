@@ -12,6 +12,7 @@ globalThis.updateLedgerData = (data) => {
     const healthyStatus = $(".port-data-healthy")
     const metricStatus = $(".port-data-metric")
 
+    console.log(+(data.ledger.chain_id), +(data.ledger.aptos_chain_id))
     const in_chain = !error && +(data.ledger.chain_id) === +(data.ledger.aptos_chain_id)
     const synced = !error && Math.abs(+(data.ledger.ledger_version) - +(data.ledger.aptos_version)) <= (serverConfig.aptos.accuracy || 100)
 
