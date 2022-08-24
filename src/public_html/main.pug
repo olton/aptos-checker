@@ -78,6 +78,8 @@ main.container-fluid
             div.border.bd-system.p-4.border-10
                 div.row
                     div.cell-6.d-flex.flex-justify-center.flex-align-center
+                        div#loader-api(style="position: absolute; top: 0; left: 0; display: none")
+                            div(data-role="activity" data-type="square" data-style="color")
                         h3 PORTS STATE
 
                     div.cell-6
@@ -90,16 +92,19 @@ main.container-fluid
                         div.port-data.port.border.bd-system#port-seed 6180
 
                 div.row.border-top.bd-system.mt-10.pt-10
-                    div.d-flex.flex-align-center.flex-justify-center.cell-fs-one-third
+                    div.d-flex.flex-align-center.flex-justify-center.cell-fs-6
+                        div#loader-status(style="position: absolute; top: 0; left: 0; display: none")
+                            div(data-role="activity" data-type="square" data-style="color")
+
                         h3 DATA STATUS
-                    div.cell-fs-one-third
+                    div.cell-fs-6
                         div.port-data.port-data-healthy.border.bd-system NODE HEALTHY
-                    div.cell-fs-one-third
+                    div.cell-fs-3
                         div.port-data.port-data-chain.border.bd-system CHAIN STATUS
-                    div.cell-fs-one-third
+                    div.cell-fs-3
                         div.port-data.port-data-metric.border.bd-system METRIC DATA
-                    div.cell-fs-one-third
+                    div.cell-fs-3
                         div.port-data.port-data-peers.border.bd-system PEERS
-                    div.cell-fs-one-third
+                    div.cell-fs-3
                         div.port-data.port-data-sync.border.bd-system SYNC STATE
 

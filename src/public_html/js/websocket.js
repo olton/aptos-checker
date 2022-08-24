@@ -113,12 +113,14 @@ const wsMessageController = (ws, response) => {
             updateMetricData(data)
             setTimeout(requestMetricsData, 5000, ws)
             $("#activity").hide()
+            $("#loader-status").hide()
             break
         }
         case 'api': {
             updateApiData(data)
             setTimeout(requestApiData, 5000, ws)
             $("#activity").hide()
+            $("#loader-api").hide()
             break
         }
         case 'ports': {

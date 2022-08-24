@@ -46,6 +46,8 @@ globalThis.enterAddress = (form) => {
     }
 
     $("#activity").show()
+    $("#loader-api").show()
+    $("#loader-status").show()
 
     nodeAddress = address
     apiPort = (isNaN(api) ? 8080 : +api)
