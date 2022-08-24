@@ -1,6 +1,7 @@
 import {WebSocketServer, WebSocket} from "ws";
 import {getHostMetrics, getHostApiData, testPorts, HEALTH_ENDPOINT, LEDGER_ENDPOINT} from "./node.js";
 import {parseMetrics} from "./parser.js";
+import {getAptosState} from "./aptos.js";
 
 export const websocket = (server) => {
     globalThis.wss = new WebSocketServer({ server })
@@ -40,7 +41,8 @@ export const websocket = (server) => {
                 }
                 case "aptos": {
                     globalThis.useNetwork = data.network
-                    console.log(globalThis.useNetwork)
+                    await getAptosState()
+                    // console.log(globalThis.useNetwork)
                     response(ws, channel, globalThis.aptosState)
                     break
                 }
