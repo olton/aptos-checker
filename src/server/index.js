@@ -21,6 +21,7 @@ globalThis.aptosState = {
     ledger_timestamp: 0,
     network: "Unknown"
 }
+globalThis.useNetwork = 'dev'
 
 const pkg = readConfig(""+path.resolve(rootPath, "package.json"))
 
