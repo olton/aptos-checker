@@ -40,6 +40,7 @@ export const websocket = (server) => {
                 }
                 case "aptos": {
                     globalThis.useNetwork = data.network
+                    console.log(globalThis.useNetwork)
                     response(ws, channel, globalThis.aptosState)
                     break
                 }
