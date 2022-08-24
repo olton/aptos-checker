@@ -2,7 +2,8 @@ import fetch from "node-fetch";
 import {alert} from "../helpers/logging.js";
 
 export const getAptosState = async () => {
-    const result = await fetch(globalThis.useNetwork === 'dev' ? config.aptos.devnet : config.aptos.ait)
+    const link = globalThis.useNetwork === 'dev' ? config.aptos.devnet : config.aptos.ait
+    const result = await fetch(link)
     if (result.ok === false) {
         globalThis.aptosState = {
             chain_id: 0,
